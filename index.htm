@@ -391,76 +391,43 @@ body {
 </audio>
 <canvas style="cursor: move;" height="933" width="1920" id="canvas">你的浏览器不支持HTML5画布技术，请使用谷歌浏览器。</canvas>
 <!-- dhteumeuleu nav menu -->
-<div id="nav">
-	<input name="nav-switch" id="nav-switch" type="checkbox">
-	<label class="label" for="nav-switch">
-		<div class="container">
-			<div class="nav-off">
-				<h1 class="title">Marry Me, Shao Xiaotong!</h1>
-			</div>
-		</div>
-	</label>
-</div> 
+<!--<div id="nav">-->
+	<!--<input name="nav-switch" id="nav-switch" type="checkbox">-->
+	<!--<label class="label" for="nav-switch">-->
+		<!--<div class="container">-->
+			<!--<h1 class="title">Marry Me, Shao Xiaotong!</h1>-->
+		<!--</div>-->
+	<!--</label>-->
+<!--</div> -->
+<h1 class="title">Marry Me, Shao Xiaotong!</h1>
 <!-- end of dhteumeuleu nav menu -->
-<div style="position: absolute; top: 20px; right: 20px;">    <style type="text/css">
-.Qg{height: 30px;}
-.iI {
-    background: url(/misc-res/images/share.png) no-repeat scroll 0px 0px rgba(0, 0, 0, 0);
-    display: inline-block;
-    height: 16px;
-    margin-bottom: 3px;
-    vertical-align: middle;
-    width: 16px;
-}
-.jI {
-    margin-left: 2px;
-    color: #000000;
-}
-.RF{
-  float: left;
-}
-
-.Dg {
-    background-color: #FFFFFF;
-    border: 1px solid #D9D9D9;
-    border-radius: 3px;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
-    cursor: pointer;
-    float: left;
-    height: 28px;
-    line-height: 28px;
-    margin-left: 8px;
-    outline: medium none;
-    padding: 0 10px;
-    transition: background-color 0.218s ease 0s, border-color 0.218s ease 0s, box-shadow 0.218s ease 0s;
-    width: auto;
-}.RF {
-    border-radius: 0 0 3px;
-    height: 100%;
-    line-height: 30px;
-    outline: medium none;
-    overflow: hidden;
-    padding-left: 7px;
-    padding-right: 16px;
-    position: relative;
-}
-.IH {
-    display: inline-block;
-    max-width: 200px;
-}.JH {
-    display: inline-block;
-    margin-right: 4px;
-    margin-top: 1px;
-}
-.ho {
-    border-radius: 2px;
-}
-    </style>
 <script src="jquery-1.js"></script>
 <script src="util.js"></script>
 <script src="ga.js"></script>
 
 
+	<script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', musicInWeixinHandler);
+        document.body.addEventListener('touchstart', musicInBrowserHandler);
+        function musicInBrowserHandler() {
+            playAudio();
+            document.body.removeEventListener('touchstart', musicInBrowserHandler);
+        }
+        function musicInWeixinHandler() {
+            playAudio();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                playAudio();
+            }, false);
+            document.removeEventListener('DOMContentLoaded', musicInWeixinHandler);
+        }
+
+        function playAudio() {
+            var audio = document.getElementById('bg-music');
+            if (audio.paused) {
+                audio.play();
+            }
+        }
+	</script>
 </body></html>
 <!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
 
