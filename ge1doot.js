@@ -260,6 +260,6 @@ window.requestAnimFrame = (function(){
 		window.oRequestAnimationFrame        || 
 		window.msRequestAnimationFrame       || 
 		function( run ){
-			window.setTimeout(run, 16);
+			window.setTimeout(run, 1);
 		};
 })();
